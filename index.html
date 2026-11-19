@@ -1,0 +1,1001 @@
+ <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Communication | Creative & Strategic Agency</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        charcoal: {
+                            950: '#0A0A0C',
+                            900: '#121216',
+                            800: '#1C1C22',
+                            700: '#2A2A34',
+                        },
+                        gold: {
+                            400: '#F5C451',
+                            500: '#E5A93C',
+                        },
+                        coral: {
+                            500: '#FF6B5B',
+                            600: '#E85343',
+                        },
+                        teal: {
+                            400: '#2DD4BF',
+                            500: '#14B8A6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom subtle animations & utilities */
+        body {
+            background-color: #0A0A0C;
+            color: #F4F4F6;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #F5C451 0%, #FF6B5B 50%, #2DD4BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A34;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E5A93C;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold-500 selection:text-charcoal-950">
+
+    <!-- ==================== 1. NAVIGATION BAR ==================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <!-- Sleek Geometric SVG Icon -->
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 via-coral-500 to-teal-400 p-[2px] transition-transform duration-300 group-hover:rotate-6">
+                        <div class="w-full h-full bg-charcoal-950 rounded-[10px] flex items-center justify-center">
+                            <svg class="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 22 20 2 20" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="14" r="3" class="text-coral-500" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-serif text-xl font-bold tracking-wide text-white block leading-none">Art</span>
+                        <span class="text-[11px] uppercase tracking-[0.25em] text-gold-400 font-semibold block mt-0.5">Communication</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-gray-300 hover:text-gold-400 transition-colors">Home</a>
+                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-gold-400 transition-colors">Services</a>
+                    <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-gold-400 transition-colors">Portfolio</a>
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-gold-400 transition-colors">About</a>
+                    <a href="#contact" class="text-sm font-medium text-gray-300 hover:text-gold-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- CTA Button & Mobile Menu Trigger -->
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold-400 hover:bg-gold-500 text-charcoal-950 font-semibold text-sm transition-all duration-300 shadow-lg shadow-gold-400/20 hover:shadow-gold-400/40 transform hover:-translate-y-0.5">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-charcoal-800 text-gray-200 hover:text-gold-400 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-charcoal-900 border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-charcoal-800 hover:text-gold-400">Home</a>
+            <a href="#services" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-charcoal-800 hover:text-gold-400">Services</a>
+            <a href="#portfolio" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-charcoal-800 hover:text-gold-400">Portfolio</a>
+            <a href="#about" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-charcoal-800 hover:text-gold-400">About</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-charcoal-800 hover:text-gold-400">Contact</a>
+            <div class="pt-2 px-4">
+                <a href="#contact" class="mobile-link block w-full text-center py-3 rounded-full bg-gold-400 text-charcoal-950 font-bold text-sm">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        <!-- Ambient Background Glows -->
+        <div class="hero-glow bg-gold-400 -top-20 -left-20"></div>
+        <div class="hero-glow bg-coral-500 top-1/3 right-0"></div>
+        <div class="hero-glow bg-teal-400 -bottom-20 left-1/3"></div>
+
+        <!-- Subtle Grid Overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Copy -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">Creative & Strategic Communication Studio</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+                        Where <span class="italic font-normal text-gold-400">Artistic Vision</span> Meets Strategic <span class="gradient-text">Impact.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        At <strong class="text-white font-semibold">Art Communication</strong>, we craft unforgettable brand identities, high-converting digital campaigns, and compelling visual narratives that captivate audiences and elevate market leaders.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-400 hover:bg-gold-500 text-charcoal-950 font-bold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-gold-400/20 flex items-center justify-center gap-2.5">
+                            <span>Explore Our Work</span>
+                            <i class="fa-solid fa-compass"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/15 font-semibold text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2.5">
+                            <span>Start a Project</span>
+                            <i class="fa-solid fa-paper-plane text-coral-500"></i>
+                        </a>
+                    </div>
+
+                    <!-- Mini Trust Strip -->
+                    <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-gray-400 text-xs uppercase tracking-widest">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-award text-gold-400 text-base"></i>
+                            <span>Award-Winning Design</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-bolt text-coral-500 text-base"></i>
+                            <span>360° Brand Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Abstract Art Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Floating Card -->
+                        <div class="relative rounded-3xl overflow-hidden border border-white/15 bg-charcoal-900 shadow-2xl p-3">
+                            <img 
+                                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80" 
+                                alt="Abstract Digital Art & Brand Direction" 
+                                onerror="this.src='https://placehold.co/800x950/1C1C22/F5C451?text=Art+Communication'"
+                                class="w-full h-[420px] sm:h-[480px] object-cover rounded-2xl"
+                            >
+                            <!-- Overlay Badge -->
+                            <div class="absolute bottom-7 left-7 right-7 p-5 rounded-2xl bg-charcoal-950/85 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-teal-400 font-semibold uppercase tracking-wider">Featured Showcase</p>
+                                    <p class="font-serif text-lg font-bold text-white mt-0.5">Aetheris Luxury Rebrand</p>
+                                </div>
+                                <a href="#portfolio" class="w-10 h-10 rounded-full bg-coral-500 hover:bg-coral-600 text-white flex items-center justify-center transition-transform hover:scale-110">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Floating Metric Pill -->
+                        <div class="hidden sm:flex items-center gap-3 absolute -top-5 -left-6 bg-charcoal-800 border border-white/10 px-5 py-3.5 rounded-2xl shadow-xl">
+                            <div class="w-10 h-10 rounded-xl bg-teal-400/15 text-teal-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-bold text-base leading-none">+240%</p>
+                                <p class="text-gray-400 text-xs mt-1">Avg. Brand Engagement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. SERVICES SECTION ==================== -->
+    <section id="services" class="py-24 bg-charcoal-900/60 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-coral-500">What We Do</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">
+                    Multidisciplinary Expertise for Modern Brands
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    We bridge the gap between aesthetic brilliance and measurable communication strategies across every touchpoint.
+                </p>
+            </div>
+
+            <!-- 4 Interactive Service Cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Brand Identity & Design -->
+                <div class="reveal group p-8 rounded-3xl bg-charcoal-800/70 border border-white/10 hover:border-gold-400/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold-400/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-gold-400/10 border border-gold-400/20 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-gold-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors">
+                            Brand Identity & Design
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Distinctive visual systems, bespoke typography, logo architecture, and comprehensive brand guidelines that command instant recognition.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Logo & Visual Systems</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Packaging & Editorial</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Brand Strategy & Voice</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Digital Marketing & PR -->
+                <div class="reveal group p-8 rounded-3xl bg-charcoal-800/70 border border-white/10 hover:border-coral-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-coral-500/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-coral-500/10 border border-coral-500/20 text-coral-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-coral-500 group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3 group-hover:text-coral-500 transition-colors">
+                            Digital Marketing & PR
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Data-backed omnichannel campaigns, high-impact public relations, and social media ecosystems built to spark cultural conversation.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-coral-500"></i> Integrated Campaigns</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-coral-500"></i> Media & Influencer PR</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-coral-500"></i> Social Growth Strategy</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Content Creation & Storytelling -->
+                <div class="reveal group p-8 rounded-3xl bg-charcoal-800/70 border border-white/10 hover:border-teal-400/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-teal-400/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-teal-400/10 border border-teal-400/20 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-teal-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-feather-pointed"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3 group-hover:text-teal-400 transition-colors">
+                            Content Creation & Storytelling
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Emotionally resonant copywriting, commercial photography, and interactive digital narratives that turn passive viewers into loyal advocates.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Creative Copywriting</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Editorial Photography</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Motion & 3D Art</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Media & Event Production -->
+                <div class="reveal group p-8 rounded-3xl bg-charcoal-800/70 border border-white/10 hover:border-gold-400/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-gold-400/10 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-film"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                            Media & Event Production
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Cinema-grade commercial film production, experiential brand activations, and flagship launch events engineered for lasting impression.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Brand Films & TVCs</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Experiential Launches</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Stage & Spatial Design</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. PORTFOLIO SHOWCASE ==================== -->
+    <section id="portfolio" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header & Filter Controls -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 reveal">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-teal-400">Selected Works</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">
+                        Curated Case Studies
+                    </h2>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div id="portfolio-filters" class="flex flex-wrap gap-2">
+                    <button data-filter="all" class="filter-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-gold-400 text-charcoal-950">
+                        All
+                    </button>
+                    <button data-filter="Branding" class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-charcoal-800 text-gray-300 hover:bg-charcoal-700">
+                        Branding
+                    </button>
+                    <button data-filter="Digital Campaigns" class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-charcoal-800 text-gray-300 hover:bg-charcoal-700">
+                        Digital Campaigns
+                    </button>
+                    <button data-filter="Print & Media" class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-charcoal-800 text-gray-300 hover:bg-charcoal-700">
+                        Print & Media
+                    </button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid (Populated via JS for clean filtering & modal binding) -->
+            <div id="portfolio-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards injected dynamically -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="relative w-full max-w-3xl bg-charcoal-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col">
+            
+            <!-- Close Button -->
+            <button id="close-modal-btn" aria-label="Close modal" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-charcoal-950/80 hover:bg-coral-500 text-white flex items-center justify-center transition-colors border border-white/10">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Scrollable Body -->
+            <div class="overflow-y-auto">
+                <div class="relative h-64 sm:h-80 w-full bg-charcoal-800">
+                    <img id="modal-img" src="" alt="Project Preview" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900 via-transparent to-transparent"></div>
+                    <span id="modal-category" class="absolute bottom-4 left-6 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold-400 text-charcoal-950">
+                        Category
+                    </span>
+                </div>
+
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div>
+                        <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-bold text-white">Project Title</h3>
+                        <p id="modal-client" class="text-sm text-teal-400 font-medium mt-1">Client: Brand Name</p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6 pt-2 border-t border-white/10">
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">The Challenge & Overview</h4>
+                            <p id="modal-description" class="text-sm text-gray-300 leading-relaxed"></p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-coral-500 mb-2">Creative Strategy & Impact</h4>
+                            <p id="modal-strategy" class="text-sm text-gray-300 leading-relaxed"></p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                        <div id="modal-metrics" class="text-sm font-semibold text-gold-400"></div>
+                        <a href="#contact" id="modal-inquire-btn" class="px-6 py-2.5 rounded-full bg-gold-400 hover:bg-gold-500 text-charcoal-950 font-bold text-xs uppercase tracking-wider transition-colors">
+                            Start Similar Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 5. ABOUT & PROCESS SECTION ==================== -->
+    <section id="about" class="py-24 bg-charcoal-900/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+            
+            <!-- Top Split: Philosophy & Key Metrics -->
+            <div class="grid lg:grid-cols-12 gap-12 items-center reveal">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-gold-400">About Art Communication</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight">
+                        We Turn Bold Ideas Into Cultural Icons.
+                    </h2>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        Founded on the belief that strategic communication should never feel formulaic, <strong class="text-white">Art Communication</strong> unites fine-art sensibility with sharp commercial acumen. Every campaign, identity, and film we produce is tailored to move hearts and shift market metrics.
+                    </p>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        Our collective of art directors, brand strategists, filmmakers, and digital storytellers partners with ambitious startups and established enterprises worldwide.
+                    </p>
+                </div>
+
+                <!-- Key Metrics Grid -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4 sm:gap-6">
+                    <div class="p-6 sm:p-8 rounded-3xl bg-charcoal-800 border border-white/10">
+                        <p class="font-serif text-4xl sm:text-5xl font-bold text-gold-400">150+</p>
+                        <p class="text-white font-semibold mt-2">Brands Elevated</p>
+                        <p class="text-xs text-gray-400 mt-1">Across luxury, tech, culture & lifestyle</p>
+                    </div>
+                    <div class="p-6 sm:p-8 rounded-3xl bg-charcoal-800 border border-white/10">
+                        <p class="font-serif text-4xl sm:text-5xl font-bold text-coral-500">8+</p>
+                        <p class="text-white font-semibold mt-2">Years Experience</p>
+                        <p class="text-xs text-gray-400 mt-1">Crafting timeless visual narratives</p>
+                    </div>
+                    <div class="p-6 sm:p-8 rounded-3xl bg-charcoal-800 border border-white/10">
+                        <p class="font-serif text-4xl sm:text-5xl font-bold text-teal-400">98%</p>
+                        <p class="text-white font-semibold mt-2">Client Satisfaction</p>
+                        <p class="text-xs text-gray-400 mt-1">Long-term partnerships built on trust</p>
+                    </div>
+                    <div class="p-6 sm:p-8 rounded-3xl bg-charcoal-800 border border-white/10">
+                        <p class="font-serif text-4xl sm:text-5xl font-bold text-white">24</p>
+                        <p class="text-white font-semibold mt-2">Design Awards</p>
+                        <p class="text-xs text-gray-400 mt-1">International recognition for excellence</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4-Step Creative Workflow -->
+            <div class="reveal">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-teal-400">Our Methodology</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">The 4-Step Creative Workflow</h3>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Step 1 -->
+                    <div class="relative p-7 rounded-3xl bg-charcoal-950 border border-white/10">
+                        <span class="font-serif text-5xl font-bold text-white/10 absolute top-5 right-6">01</span>
+                        <div class="w-11 h-11 rounded-xl bg-gold-400/15 text-gold-400 flex items-center justify-center font-bold mb-5">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-white mb-2">Discover</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Deep-dive brand audits, audience psychology research, and competitive positioning to uncover your authentic edge.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative p-7 rounded-3xl bg-charcoal-950 border border-white/10">
+                        <span class="font-serif text-5xl font-bold text-white/10 absolute top-5 right-6">02</span>
+                        <div class="w-11 h-11 rounded-xl bg-coral-500/15 text-coral-500 flex items-center justify-center font-bold mb-5">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-white mb-2">Conceptualize</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Moodboards, narrative architecture, and bold creative territories designed to differentiate your voice.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative p-7 rounded-3xl bg-charcoal-950 border border-white/10">
+                        <span class="font-serif text-5xl font-bold text-white/10 absolute top-5 right-6">03</span>
+                        <div class="w-11 h-11 rounded-xl bg-teal-400/15 text-teal-400 flex items-center justify-center font-bold mb-5">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-white mb-2">Create</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Meticulous design execution, film direction, copywriting, and interactive production with obsessive craft.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative p-7 rounded-3xl bg-charcoal-950 border border-white/10">
+                        <span class="font-serif text-5xl font-bold text-white/10 absolute top-5 right-6">04</span>
+                        <div class="w-11 h-11 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center font-bold mb-5">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-white mb-2">Amplify</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Strategic launch orchestration, PR placement, and performance optimization to maximize cultural reach.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== 6. CONTACT & INQUIRY SECTION ==================== -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="hero-glow bg-gold-400 bottom-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Left Studio Contact Info -->
+                <div class="lg:col-span-5 space-y-8 reveal">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-[0.25em] text-coral-500">Start a Conversation</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mt-3">
+                            Let’s Craft Your Next Masterpiece.
+                        </h2>
+                        <p class="text-gray-400 mt-4 leading-relaxed">
+                            Ready to elevate your brand identity or launch an unforgettable campaign? Tell us about your vision and our creative directors will respond within 24 hours.
+                        </p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-charcoal-800 border border-white/10 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Creative Studio</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">Suite 402, Design District Boulevard, Creative Quarter</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-charcoal-800 border border-white/10 text-coral-500 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">New Business & Inquiries</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">hello@artcommunication.studio</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-charcoal-800 border border-white/10 text-teal-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Direct Line</h4>
+                                <p class="text-sm text-gray-400 mt-0.5">+1 (555) 892-4410</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="pt-4">
+                        <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">Follow Our Studio</p>
+                        <div class="flex items-center gap-3">
+                            <a href="#contact" aria-label="Instagram" class="w-11 h-11 rounded-full bg-charcoal-800 hover:bg-gold-400 text-gray-300 hover:text-charcoal-950 border border-white/10 flex items-center justify-center transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#contact" aria-label="Behance" class="w-11 h-11 rounded-full bg-charcoal-800 hover:bg-gold-400 text-gray-300 hover:text-charcoal-950 border border-white/10 flex items-center justify-center transition-all">
+                                <i class="fa-brands fa-behance"></i>
+                            </a>
+                            <a href="#contact" aria-label="LinkedIn" class="w-11 h-11 rounded-full bg-charcoal-800 hover:bg-gold-400 text-gray-300 hover:text-charcoal-950 border border-white/10 flex items-center justify-center transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#contact" aria-label="Dribbble" class="w-11 h-11 rounded-full bg-charcoal-800 hover:bg-gold-400 text-gray-300 hover:text-charcoal-950 border border-white/10 flex items-center justify-center transition-all">
+                                <i class="fa-brands fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Inquiry Form -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="p-6 sm:p-10 rounded-3xl bg-charcoal-900 border border-white/10 shadow-2xl">
+                        
+                        <!-- Instant Confirmation Feedback Banner (Hidden initially) -->
+                        <div id="form-success" class="hidden text-center py-12 space-y-4">
+                            <div class="w-16 h-16 rounded-full bg-teal-400/20 text-teal-400 flex items-center justify-center text-3xl mx-auto">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">Inquiry Received!</h3>
+                            <p class="text-gray-300 max-w-md mx-auto text-sm leading-relaxed">
+                                Thank you, <span id="confirm-name" class="text-gold-400 font-semibold"></span>. Our creative strategy team is reviewing your brief for <span id="confirm-service" class="text-teal-400 font-semibold"></span> and will reach out shortly.
+                            </p>
+                            <button id="reset-form-btn" type="button" class="mt-4 px-6 py-2.5 rounded-full bg-charcoal-800 hover:bg-charcoal-700 text-white text-xs font-semibold uppercase tracking-wider border border-white/10 transition-colors">
+                                Send Another Message
+                            </button>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="inquiry-form" class="space-y-6">
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Your Name *</label>
+                                    <input type="text" id="name" required placeholder="e.g. Ayesha Khan" class="w-full px-4 py-3.5 rounded-xl bg-charcoal-950 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-gold-400 transition-colors text-sm">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Email Address *</label>
+                                    <input type="email" id="email" required placeholder="ayesha@company.com" class="w-full px-4 py-3.5 rounded-xl bg-charcoal-950 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-gold-400 transition-colors text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="service" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Service Needed *</label>
+                                    <select id="service" required class="w-full px-4 py-3.5 rounded-xl bg-charcoal-950 border border-white/10 text-white focus:outline-none focus:border-gold-400 transition-colors text-sm">
+                                        <option value="Brand Identity & Design">Brand Identity & Design</option>
+                                        <option value="Digital Marketing & PR">Digital Marketing & PR</option>
+                                        <option value="Content Creation & Storytelling">Content Creation & Storytelling</option>
+                                        <option value="Media & Event Production">Media & Event Production</option>
+                                        <option value="Full-Service Agency Retainer">Full-Service Agency Retainer</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="budget" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Estimated Budget</label>
+                                    <select id="budget" class="w-full px-4 py-3.5 rounded-xl bg-charcoal-950 border border-white/10 text-white focus:outline-none focus:border-gold-400 transition-colors text-sm">
+                                        <option value="$2,500 – $5,000">$2,500 – $5,000</option>
+                                        <option value="$5,000 – $15,000" selected>$5,000 – $15,000</option>
+                                        <option value="$15,000 – $30,000">$15,000 – $30,000</option>
+                                        <option value="$30,000+">$30,000+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Project Details & Timeline *</label>
+                                <textarea id="message" rows="4" required placeholder="Tell us about your brand goals, target audience, and timeline..." class="w-full px-4 py-3.5 rounded-xl bg-charcoal-950 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-gold-400 transition-colors text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-coral-500 hover:opacity-95 text-charcoal-950 font-bold text-sm uppercase tracking-wider transition-all shadow-lg shadow-gold-400/20 flex items-center justify-center gap-2">
+                                <span>Submit Project Inquiry</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. FOOTER ==================== -->
+    <footer class="bg-charcoal-950 border-t border-white/10 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Brand Col -->
+                <div class="md:col-span-5 space-y-4">
+                    <a href="#home" class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-gold-400 via-coral-500 to-teal-400 p-[2px]">
+                            <div class="w-full h-full bg-charcoal-950 rounded-[10px] flex items-center justify-center">
+                                <svg class="w-5 h-5 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 22 20 2 20" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="14" r="3" class="text-coral-500" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white">Art Communication</span>
+                    </a>
+                    <p class="text-sm text-gray-400 max-w-sm leading-relaxed">
+                        A creative communication and brand design studio crafting iconic identities, strategic campaigns, and unforgettable visual experiences.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-gold-400 transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-gold-400 transition-colors">Portfolio Showcase</a></li>
+                        <li><a href="#about" class="hover:text-gold-400 transition-colors">About & Process</a></li>
+                        <li><a href="#contact" class="hover:text-gold-400 transition-colors">Get a Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Signup -->
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white">Creative Dispatch</h4>
+                    <p class="text-sm text-gray-400">Subscribe for monthly insights on brand design, cultural trends, and agency stories.</p>
+                    <form id="newsletter-form" class="flex gap-2 pt-1">
+                        <input type="email" id="newsletter-email" required placeholder="Enter your email" class="w-full px-4 py-2.5 rounded-full bg-charcoal-900 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-gold-400">
+                        <button type="submit" class="px-5 py-2.5 rounded-full bg-gold-400 hover:bg-gold-500 text-charcoal-950 font-bold text-xs uppercase tracking-wider shrink-0 transition-colors">
+                            Join
+                        </button>
+                    </form>
+                    <p id="newsletter-feedback" class="hidden text-xs text-teal-400 font-medium pt-1">
+                        <i class="fa-solid fa-check mr-1"></i> Subscribed to Art Communication Dispatch!
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <p>&copy; <span id="current-year"></span> Art Communication. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#home" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="#home" class="hover:text-gray-300 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set dynamic year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // 1. Mobile Navigation Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                });
+            });
+
+            // 2. Portfolio Data & Filtering System
+            const projects = [
+                {
+                    id: 1,
+                    title: "Aetheris Botanical Skincare",
+                    category: "Branding",
+                    client: "Aetheris Paris",
+                    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80",
+                    fallback: "https://placehold.co/800x600/1C1C22/F5C451?text=Aetheris+Branding",
+                    description: "Complete visual identity, tactile embossed packaging, and custom serif monogram for an organic luxury skincare house launching across Europe.",
+                    strategy: "We juxtaposed minimalist Swiss grid layouts with warm botanical gold foil accents to communicate clinical purity and artisanal luxury.",
+                    metrics: "Impact: +185% Retail Sell-Through in Q1"
+                },
+                {
+                    id: 2,
+                    title: "Pulse Future Music Festival",
+                    category: "Digital Campaigns",
+                    client: "Pulse Live Entertainment",
+                    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+                    fallback: "https://placehold.co/800x600/1C1C22/FF6B5B?text=Pulse+Campaign",
+                    description: "360-degree social media launch, interactive AR filters, and dynamic motion posters for an international electronic arts festival.",
+                    strategy: "Created a generative kinetic typography system synced to festival headliner tracks, driving massive organic shares across TikTok and Instagram.",
+                    metrics: "Impact: 4.2M Organic Impressions & Sold Out in 48 Hours"
+                },
+                {
+                    id: 3,
+                    title: "Monolith Architecture Monograph",
+                    category: "Print & Media",
+                    client: "Studio Kengo & Partners",
+                    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+                    fallback: "https://placehold.co/800x600/1C1C22/2DD4BF?text=Monolith+Print",
+                    description: "A 320-page hardcover collector's exhibition book and accompanying documentary short film celebrating brutalist sustainable architecture.",
+                    strategy: "Utilized uncoated Japanese cotton paper stocks paired with high-contrast architectural photography to turn a corporate portfolio into a gallery artifact.",
+                    metrics: "Impact: Winner of Best Editorial Design 2025"
+                },
+                {
+                    id: 4,
+                    title: "Veloce Electric Mobility",
+                    category: "Branding",
+                    client: "Veloce Motors Milan",
+                    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80",
+                    fallback: "https://placehold.co/800x600/1C1C22/F5C451?text=Veloce+Identity",
+                    description: "Brand positioning, aerodynamic emblem design, and digital cockpit UI language for a next-generation urban electric motorcycle brand.",
+                    strategy: "Blended Italian racing heritage with futuristic neon-teal telemetry visuals to appeal to design-conscious urban commuters.",
+                    metrics: "Impact: 12,000+ Pre-Orders Secured Pre-Launch"
+                },
+                {
+                    id: 5,
+                    title: "Lumière Film Biennale",
+                    category: "Print & Media",
+                    client: "National Arts Council",
+                    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+                    fallback: "https://placehold.co/800x600/1C1C22/FF6B5B?text=Lumiere+Biennale",
+                    description: "City-wide outdoor billboard takeover, festival trailer production, and VIP gala spatial branding for an independent cinema biennale.",
+                    strategy: "Captured dramatic chiaroscuro portraits of emerging directors, transforming city transit hubs into an open-air cinema gallery.",
+                    metrics: "Impact: +62% Ticket Attendance Year-over-Year"
+                },
+                {
+                    id: 6,
+                    title: "Kova Artisanal Coffee Roasters",
+                    category: "Digital Campaigns",
+                    client: "Kova Specialty Coffee",
+                    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+                    fallback: "https://placehold.co/800x600/1C1C22/2DD4BF?text=Kova+Digital",
+                    description: "Direct-to-consumer storytelling campaign, origin documentary mini-series, and subscription launch strategy.",
+                    strategy: "Humanized the supply chain through intimate farmer portraits and interactive brew-guide reels, boosting subscriber retention.",
+                    metrics: "Impact: 3.4x Return on Ad Spend (ROAS)"
+                }
+            ];
+
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            function renderProjects(filter = 'all') {
+                portfolioGrid.innerHTML = '';
+                const filtered = filter === 'all' 
+                    ? projects 
+                    : projects.filter(p => p.category === filter);
+
+                filtered.forEach(project => {
+                    const card = document.createElement('div');
+                    card.className = 'group relative rounded-3xl overflow-hidden bg-charcoal-900 border border-white/10 cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-gold-400/50 shadow-xl';
+                    card.innerHTML = `
+                        <div class="relative h-72 overflow-hidden">
+                            <img 
+                                src="${project.image}" 
+                                alt="${project.title}" 
+                                onerror="this.src='${project.fallback}'"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-charcoal-950/80 backdrop-blur-md text-gold-400 border border-white/10">
+                                ${project.category}
+                            </span>
+                            <div class="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-gold-400 text-charcoal-950 flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                <i class="fa-solid fa-eye text-sm"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-xs text-teal-400 font-semibold uppercase tracking-wider">${project.client}</p>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1 group-hover:text-gold-400 transition-colors">${project.title}</h3>
+                            <p class="text-sm text-gray-400 mt-2 line-clamp-2">${project.description}</p>
+                        </div>
+                    `;
+                    card.addEventListener('click', () => openModal(project));
+                    portfolioGrid.appendChild(card);
+                });
+            }
+
+            // Initial Render
+            renderProjects();
+
+            // Filter Click Events
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-gold-400', 'text-charcoal-950');
+                        b.classList.add('bg-charcoal-800', 'text-gray-300');
+                    });
+                    btn.classList.add('active', 'bg-gold-400', 'text-charcoal-950');
+                    btn.classList.remove('bg-charcoal-800', 'text-gray-300');
+                    
+                    renderProjects(btn.dataset.filter);
+                });
+            });
+
+            // 3. Project Modal Logic
+            const modal = document.getElementById('project-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const modalInquireBtn = document.getElementById('modal-inquire-btn');
+
+            function openModal(project) {
+                document.getElementById('modal-img').src = project.image;
+                document.getElementById('modal-img').onerror = function() { this.src = project.fallback; };
+                document.getElementById('modal-category').textContent = project.category;
+                document.getElementById('modal-title').textContent = project.title;
+                document.getElementById('modal-client').textContent = `Client: ${project.client}`;
+                document.getElementById('modal-description').textContent = project.description;
+                document.getElementById('modal-strategy').textContent = project.strategy;
+                document.getElementById('modal-metrics').textContent = project.metrics;
+
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalInquireBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+            });
+
+            // 4. Contact Inquiry Form Feedback
+            const inquiryForm = document.getElementById('inquiry-form');
+            const formSuccess = document.getElementById('form-success');
+            const resetFormBtn = document.getElementById('reset-form-btn');
+
+            inquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nameVal = document.getElementById('name').value.trim();
+                const serviceVal = document.getElementById('service').value;
+
+                document.getElementById('confirm-name').textContent = nameVal || 'Partner';
+                document.getElementById('confirm-service').textContent = serviceVal;
+
+                inquiryForm.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+            });
+
+            resetFormBtn.addEventListener('click', () => {
+                inquiryForm.reset();
+                formSuccess.classList.add('hidden');
+                inquiryForm.classList.remove('hidden');
+            });
+
+            // 5. Newsletter Signup Feedback
+            const newsletterForm = document.getElementById('newsletter-form');
+            const newsletterFeedback = document.getElementById('newsletter-feedback');
+
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                newsletterForm.reset();
+                newsletterFeedback.classList.remove('hidden');
+                setTimeout(() => {
+                    newsletterFeedback.classList.add('hidden');
+                }, 4000);
+            });
+
+            // 6. Scroll Reveal Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
